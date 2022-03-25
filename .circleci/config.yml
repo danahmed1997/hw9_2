@@ -8,6 +8,10 @@
 version: 2
 jobs:
   build:
+    working_directory: /go/src/github.com/justinagain/deployer
+    branches:
+      only:
+        - master
     machine:
       environment:
         GOPATH_HEAD: "$(echo $GOPATH | cut -d ':' -f 1)"
@@ -17,8 +21,10 @@ jobs:
 
       services:
         - docker
+    steps:
+  
 
-    dependencies:
+    - dependencies:
       override:
         - rm -rf ${GOPATH_BASE}/
         - mkdir -p "$GOPATH_BASE"
@@ -27,7 +33,7 @@ jobs:
         - go get github.com/govend/govend
         - sudo pip install awscli
 
-    test:
+    - test:
       override:
         - >
             go test
@@ -44,7 +50,7 @@ jobs:
         # Run GOVEND to check if outdated dependencies are present
         - 'GOPATH="$GOPATH_HEAD"; ( cd ${GOPATH_BASE}/${CIRCLE_PROJECT_REPONAME} && govend -u && git diff --quiet )'
 
-    deployment:
+    - deployment:
       hub_latest:
         # appropriately tag and push the container to dockerhub
         # only when on the master branch
