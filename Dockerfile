@@ -10,7 +10,9 @@ ADD deploymentTests /app/deploymentTests/
 
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get -y install jq postgresql-client awscli
+RUN apt-get -y install jq
+RUN apt-get -y install postgresql-client
+RUN apt-get -y install awscli
 
 USER app
 EXPOSE 8080
