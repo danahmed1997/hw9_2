@@ -18,8 +18,9 @@ RUN apt-get -y install sudo
 RUN echo "howdy"
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 RUN unzip awscli-bundle.zip
+RUN alias python=python3
 RUN sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
-RUN sudo /usr/bin/python3.9 awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+RUN sudo python awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
 USER app
 EXPOSE 8080
