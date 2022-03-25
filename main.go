@@ -48,8 +48,8 @@ func (dplr *deployer) postWebHook(w http.ResponseWriter, r *http.Request) {
         // `securingdevops` dockerhub organization. If this wasn't an
         // example application, we would make the namespacing configurable
         var namespace = hookData.Repository.Namespace
-        if (namespace != 'jmdv2' || namespace != 'justinagain') {
-                log.Printf("Invalid namespace is: " + namespace))
+        if namespace != 'jmdv2'  {
+                log.Printf("Invalid namespace is: " + namespace)
                 httpError(w, http.StatusUnauthorized, "Invalid namespace: " + namespace)
                 return
         }
