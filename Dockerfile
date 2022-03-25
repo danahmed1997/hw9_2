@@ -12,7 +12,10 @@ RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get -y install jq
 RUN apt-get -y install postgresql-client
-RUN apt-get -y install awscli
+RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+RUN unzip awscli-bundle.zip
+RUN sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+RUN sudo /usr/local/bin/python3.7 awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
 USER app
 EXPOSE 8080
