@@ -14,6 +14,7 @@ RUN apt-get -y install jq
 RUN apt-get -y install postgresql-client
 RUN apt-get -y install zip
 RUN apt-get -y install python3
+RUN apt-get -y install sudo
 RUN echo "howdy"
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 RUN unzip awscli-bundle.zip
