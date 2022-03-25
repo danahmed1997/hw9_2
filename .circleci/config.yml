@@ -15,7 +15,6 @@ jobs:
     steps:
 
     - test:
-      override:
         - >
             go test
             github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
