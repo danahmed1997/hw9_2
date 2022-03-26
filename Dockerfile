@@ -25,6 +25,7 @@ RUN which python3
 RUN alias python=python3
 RUN alias python='/usr/bin/python3'
 RUN python --version
+RUN sudo apt-get install python3-venv
 RUN sudo '/usr/bin/python3' awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
 USER app
