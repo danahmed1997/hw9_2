@@ -20,6 +20,8 @@ RUN echo "howdy"
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 RUN unzip awscli-bundle.zip
 RUN python --version
+RUN python3 --version
+RUN which python3
 RUN alias python=python3
 RUN python --version
 RUN sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
