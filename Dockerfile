@@ -26,7 +26,7 @@ RUN alias python=python3
 RUN alias python='/usr/bin/python3'
 RUN python --version
 RUN sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
-RUN sudo python awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+RUN sudo '/usr/bin/python3' awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
 USER app
 EXPOSE 8080
