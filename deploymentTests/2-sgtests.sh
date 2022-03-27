@@ -5,7 +5,8 @@ $HOME/go/bin/pineapple <<EOF
 #$GOPATH/bin/pineapple <<EOF
 aws:
     region: us-east-1
-    accountnumber: 927034868273
+    #accountnumber: 927034868273
+    accountnumber: 147207502508
 components:
     - name: load-balancer
       type: elb
