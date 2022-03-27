@@ -29,9 +29,7 @@ aws elasticbeanstalk create-application \
     --description "deployer $env $datetag" > tmp/$identifier/ebcreateapp.json || fail
 echo "ElasticBeanTalk application created"
 
-# Get the name of the latest Docker solution stack
-dockerstack="$(aws elasticbeanstalk list-available-solution-stacks | \
-    jq -r '.SolutionStacks[]' | grep -P '.+Amazon Linux.+Docker.+' | head -1)"
+dockerstack="64bit Amazon Linux 2 v3.4.12 running Docker"
 
 # Create the EB API environment
 aws elasticbeanstalk create-environment \
