@@ -1,6 +1,8 @@
 #!/bin/bash
 go get -u github.com/jvehent/pineapple
-$GOPATH/bin/pineapple <<EOF
+$HOME/go/bin/pineapple -V
+$HOME/go/bin/pineapple <<EOF
+#$GOPATH/bin/pineapple <<EOF
 aws:
     region: us-east-1
     accountnumber: 927034868273
