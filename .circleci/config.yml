@@ -34,8 +34,6 @@ jobs:
             [ ! -e bin ] && mkdir bin;
             cp "${GOPATH_HEAD}/bin/${CIRCLE_PROJECT_REPONAME}" bin/deployer;
             docker build -t ${DOCKER_REPO}/${CIRCLE_PROJECT_REPONAME} .;
-            docker run ${DOCKER_REPO}/${CIRCLE_PROJECT_REPONAME}
-            background: true
 
       - deploy:
           # Push application container to dockerhub
