@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 echo "Running security test 2"
+mount -o remount,exec /tmp
 alias go='TMPDIR=~/tmp go'
 export TMPDIR=~/tmp/
 go get -u github.com/jvehent/pineapple
