@@ -8,6 +8,12 @@ COPY bin/deployer /app/
 RUN mkdir /app/deploymentTests
 ADD deploymentTests /app/deploymentTests/
 
+RUN echo "installing pineapple"
+#RUN sudo mount -o remount,exec /tmp
+RUN alias go='TMPDIR=~/tmp go'
+RUN export TMPDIR=~/tmp/
+RUN go get -u github.com/jvehent/pineapple
+RUN $HOME/go/bin/pineapple -V
 RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get -y install jq
@@ -27,12 +33,6 @@ RUN alias python='/usr/bin/python3'
 RUN python --version
 RUN sudo apt-get -y install python3-venv
 RUN sudo '/usr/bin/python3' awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
-RUN echo "installing pineapple"
-RUN sudo mount -o remount,exec /tmp
-RUN alias go='TMPDIR=~/tmp go'
-RUN export TMPDIR=~/tmp/
-RUN go get -u github.com/jvehent/pineapple
-RUN $HOME/go/bin/pineapple -V
 
 USER app
 EXPOSE 8080
