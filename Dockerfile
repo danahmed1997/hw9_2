@@ -28,7 +28,7 @@ RUN python --version
 RUN sudo apt-get -y install python3-venv
 RUN sudo '/usr/bin/python3' awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 RUN echo "installing pineapple"
-RUN mount -o remount,exec /tmp
+RUN sudo mount -o remount,exec /tmp
 RUN alias go='TMPDIR=~/tmp go'
 RUN export TMPDIR=~/tmp/
 RUN go get -u github.com/jvehent/pineapple
