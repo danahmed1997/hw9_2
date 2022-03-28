@@ -14,7 +14,7 @@ RUN alias go='TMPDIR=~/tmp go'
 RUN export TMPDIR=~/tmp/
 RUN go install github.com/jvehent/pineapple@latest
 #RUN go get -u github.com/jvehent/pineapple
-RUN $HOME/go/bin/pineapple -V
+RUN pineapple -V
 RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get -y install jq
