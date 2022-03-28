@@ -1,4 +1,6 @@
 #!/bin/bash
+alias go='TMPDIR=~/tmp go'
+export TMPDIR=~/tmp/
 go get -u github.com/jvehent/pineapple
 $HOME/go/bin/pineapple -V
 $HOME/go/bin/pineapple <<EOF
