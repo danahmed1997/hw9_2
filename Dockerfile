@@ -12,7 +12,7 @@ RUN echo "installing pineapple"
 #RUN sudo mount -o remount,exec /tmp
 RUN alias go='TMPDIR=~/tmp go'
 RUN export TMPDIR=~/tmp/
-RUN go install github.com/jvehent/pineapple
+RUN go install github.com/jvehent/pineapple@latest
 #RUN go get -u github.com/jvehent/pineapple
 RUN $HOME/go/bin/pineapple -V
 RUN apt-get update
