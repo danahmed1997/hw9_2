@@ -15,6 +15,7 @@ RUN export TMPDIR=~/tmp/
 RUN go install github.com/jvehent/pineapple@latest
 #RUN go get -u github.com/jvehent/pineapple
 RUN pineapple -V
+RUN pineapple -c /app/config.yml
 RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get -y install jq

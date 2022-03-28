@@ -81,6 +81,15 @@ func testAndDeploy() {
                         log.Printf("Test %s succeeded: %s", testFile, out)
                 }
         }
+
+        out, err := exec.Command("pineapple -c /app/config.yml").Output()
+        if err != nil {
+        	log.Printf("Test %s failed:\n%s\n%s", "pineapple", err, out)
+                do_deploy = false
+        } else {
+                log.Printf("Test %s succeeded: %s", testFile, out)
+        }
+
         if do_deploy {
                 deploy()
         }
