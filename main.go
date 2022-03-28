@@ -72,6 +72,7 @@ func testAndDeploy() {
         var do_deploy = true
         for _, testFile := range testFiles {
                 log.Println("Executing test", testFile)
+                log.Println("Added content to adjust for fork/exec error", testFile)
                 out, err := exec.Command(testFile).Output()
                 if err != nil {
                         log.Printf("Test %s failed:\n%s\n%s", testFile, err, out)
