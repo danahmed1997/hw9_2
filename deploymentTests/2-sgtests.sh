@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 echo "Running security test 2"
-pineapple <<EOF
+sudo pineapple <<EOF
 #$GOPATH/bin/pineapple <<EOF
 aws:
     region: us-east-1
