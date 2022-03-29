@@ -82,13 +82,31 @@ func testAndDeploy() {
                 }
         }
 
-        out, err := exec.Command("pineapple -c /app/config.yml").Output()
+        out, err := exec.Command("pineapple -c config.yml").Output()
         if err != nil {
         	log.Printf("Test %s failed:\n%s\n%s", "pineapple", err, out)
                 do_deploy = false
         } else {
                 log.Printf("Test %s succeeded: %s", "pineapple", out)
         }
+
+        out, err := exec.Command("pwd").Output()
+        if err != nil {
+        	log.Printf("Test %s failed:\n%s\n%s", "pineapple", err, out)
+                do_deploy = false
+        } else {
+                log.Printf("Test %s succeeded: %s", "pineapple", out)
+        }
+
+
+        out, err := exec.Command("ls").Output()
+        if err != nil {
+        	log.Printf("Test %s failed:\n%s\n%s", "pineapple", err, out)
+                do_deploy = false
+        } else {
+                log.Printf("Test %s succeeded: %s", "pineapple", out)
+        }
+
 
         if do_deploy {
                 deploy()
