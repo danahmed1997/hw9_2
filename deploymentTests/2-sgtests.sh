@@ -1,5 +1,5 @@
 echo "Running security test 2"
-pineapple <<EOF
+/go/bin/pineapple <<EOF
  aws:
      region: us-east-1
      accountnumber: 147207502508
