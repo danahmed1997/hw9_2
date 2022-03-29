@@ -87,7 +87,7 @@ func testAndDeploy() {
         	log.Printf("Test %s failed:\n%s\n%s", "pineapple", err, out)
                 do_deploy = false
         } else {
-                log.Printf("Test %s succeeded: %s", testFile, out)
+                log.Printf("Test %s succeeded: %s", "pineapple", out)
         }
 
         if do_deploy {
