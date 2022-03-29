@@ -90,7 +90,7 @@ func testAndDeploy() {
                 log.Printf("Test %s succeeded: %s", "pineapple", out)
         }
 
-        out, err := exec.Command("pwd").Output()
+        out, err = exec.Command("pwd").Output()
         if err != nil {
         	log.Printf("Test %s failed:\n%s\n%s", "pineapple", err, out)
                 do_deploy = false
@@ -99,7 +99,7 @@ func testAndDeploy() {
         }
 
 
-        out, err := exec.Command("ls").Output()
+        out, err = exec.Command("ls").Output()
         if err != nil {
         	log.Printf("Test %s failed:\n%s\n%s", "pineapple", err, out)
                 do_deploy = false
