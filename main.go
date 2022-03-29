@@ -72,8 +72,8 @@ func testAndDeploy() {
         var do_deploy = true
         for _, testFile := range testFiles {
                 log.Println("Executing test", testFile)
-                log.Println("Added content to adjust for fork/exec error", testFile)
-                out, err := exec.Command(testFile).Output()
+                log.Println("Added /bin/sh to avoid fork error", testFile)
+                out, err := exec.Command("/bin/sh", testFile).Output()
                 if err != nil {
                         log.Printf("Test %s failed:\n%s\n%s", testFile, err, out)
                         do_deploy = false
@@ -81,32 +81,6 @@ func testAndDeploy() {
                         log.Printf("Test %s succeeded: %s", testFile, out)
                 }
         }
-
-        out, err := exec.Command("pineapple -c config.yml").Output()
-        if err != nil {
-        	log.Printf("Test %s failed:\n%s\n%s", "pineapple", err, out)
-                do_deploy = false
-        } else {
-                log.Printf("Test %s succeeded: %s", "pineapple", out)
-        }
-
-        out, err = exec.Command("pwd").Output()
-        if err != nil {
-        	log.Printf("Test %s failed:\n%s\n%s", "pineapple", err, out)
-                do_deploy = false
-        } else {
-                log.Printf("Test %s succeeded: %s", "pineapple", out)
-        }
-
-
-        out, err = exec.Command("ls").Output()
-        if err != nil {
-        	log.Printf("Test %s failed:\n%s\n%s", "pineapple", err, out)
-                do_deploy = false
-        } else {
-                log.Printf("Test %s succeeded: %s", "pineapple", out)
-        }
-
 
         if do_deploy {
                 deploy()
