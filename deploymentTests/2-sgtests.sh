@@ -1,5 +1,9 @@
 echo "Running security test 2"
-/go/bin/pineapple <<EOF
+go install github.com/jvehent/pineapple@latest
+var1=$(which pineapple)
+echo $var1
+$var1 -V
+$var1 <<EOF
  aws:
      region: us-east-1
      accountnumber: 147207502508
