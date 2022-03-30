@@ -34,7 +34,7 @@ dockerstack="64bit Amazon Linux 2 v3.4.12 running Docker"
 # Create the EB API environment
 aws elasticbeanstalk create-environment \
     --application-name $identifier \
-    --environment-name deployer-api-justin \
+    --environment-name deployer-api-dahmed \
     --description "deployer API environment" \
     --tags "Key=Owner,Value=$(whoami)" \
     --solution-stack-name "$dockerstack" \
@@ -48,7 +48,7 @@ aws s3 mb s3://$identifier
 aws s3 cp app-version-deployer.json s3://$identifier/
 aws elasticbeanstalk create-application-version \
     --application-name "$identifier" \
-    --version-label deployer-api \
+    --version-label deployer-api-dahmed \
     --source-bundle "S3Bucket=$identifier,S3Key=app-version-deployer.json" > tmp/$identifier/appversion.json
 
 # Wait for the environment to be ready (green)
@@ -66,7 +66,7 @@ echo
 aws elasticbeanstalk update-environment \
     --application-name $identifier \
     --environment-id $apieid \
-    --version-label deployer-api-justin > tmp/$identifier/$apieid.json
+    --version-label deployer-api-dahmed > tmp/$identifier/$apieid.json
 
 url="$(jq -r '.CNAME' tmp/$identifier/$apieid.json)"
 echo "Environment is being deployed. Public endpoint is http://$url"
