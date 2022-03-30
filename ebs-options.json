@@ -1,7 +1,7 @@
 [{
 "Namespace": "aws:autoscaling:launchconfiguration",
 "OptionName": "IamInstanceProfile",
-"Value": "arn:aws:iam::147207502508:instance-profile/eb-invoicer-role"
+"Value": "aws-elasticbeanstalk-ec2-role"
 }
 
 
